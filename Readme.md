@@ -87,3 +87,50 @@ print("뒤 7자리 : " + jumin[7:]) # 7 부터 끝까지
 print("뒤 7자리 (뒤에부터) : " + jumin[-7:])
 # 맨 뒤에서 7번째부터 끝까지
 ```
+
+### 문자열 처리 함수
+
+```py
+python = "Python is Amazing"
+print(python.lower()) # 소문자로
+print(python.upper()) # 대문자로
+print(python[0].isupper())
+print(len(python)) # 길이
+print(python.replace("Python", "Java")) # 문자열 바꿈
+
+index = python.index("n") # 문자열 위치 찾기
+print(index)
+index = python.index("n", index + 1) # 두번째 n의 위치 찾기
+print(index)
+
+print(python.find("Java")) # 문자를 찾지 못할 경우 -1 출력
+print(python.index("Java")) # 문자를 찾지 못할 경우 오류남
+
+print(python.count("n")) # 문자열 n이 나오는 개수
+```
+
+### 문자열 포맷
+
+```py
+# 방법 1
+print("나는 %d살입니다." % 35) # 정수만
+print("나는 %s을 좋아해요" % "파이썬") # 문자열만
+print("Apple 은 %c로 시작해요." % "A") # 한글자만 받겠다는 의미
+# %s
+print("나는 %s살입니다." % 35)
+print("나는 %s색과 %s색을 좋아해요." % ("파란", "빨간"))
+
+# 방법 2
+print("나는 {}살입니다.".format(35))
+print("나는 {}색과 {}색을 좋아해요.".format("파란", "빨간"))
+print("나는 {0}색과 {1}색을 좋아해요.".format("파란", "빨간"))
+print("나는 {1}색과 {0}색을 좋아해요.".format("파란", "빨간"))
+
+# 방법 3
+print("나는 {age}살이며, {color}색을 좋아해요.".format(age=35, color="빨간"))
+
+# 방법 4 (v3.6 이상~)
+age = 35
+color = "빨간"
+print(f"나는 {age}살이며, {color}색을 좋아해요.")
+```
