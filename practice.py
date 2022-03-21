@@ -1,21 +1,25 @@
-# 방법 1
-print("나는 %d살입니다." % 35) # 정수만
-print("나는 %s을 좋아해요" % "파이썬") # 문자열만
-print("Apple 은 %c로 시작해요." % "A") # 한글자만 받겠다는 의미
-# %s
-print("나는 %s살입니다." % 35)
-print("나는 %s색과 %s색을 좋아해요." % ("파란", "빨간"))
+# 집합 (set)
+# 중복 안됨, 순서 없음
+my_set = {1,2,3,3,3}
+print(my_set)
 
-# 방법 2
-print("나는 {}살입니다.".format(35))
-print("나는 {}색과 {}색을 좋아해요.".format("파란", "빨간"))
-print("나는 {0}색과 {1}색을 좋아해요.".format("파란", "빨간"))
-print("나는 {1}색과 {0}색을 좋아해요.".format("파란", "빨간"))
+java = {"유재석", "김태호", "양세형"}
+python = set(["유재석", "박명수"])
 
-# 방법 3
-print("나는 {age}살이며, {color}색을 좋아해요.".format(age=35, color="빨간"))
+# 교집합 (java 와 python 을 모두 할 수 있는 개발자)
+print(java & python)
+print(java.intersection(python))
 
-# 방법 4 (v3.6 이상~)
-age = 35
-color = "빨간"
-print(f"나는 {age}살이며, {color}색을 좋아해요.")
+# 합집합 (java 할 수 있거나 python 도 할 수 있는 개발자)
+print(java | python)
+print(java.union(python))
+
+# 차집합 (java 할 수 있지만 python 은 할 줄 모르는 개발자)
+print(java - python)
+print(java.difference(python))
+
+# python 할 줄 아는 사람이 늘어남
+python.add("김태호")
+
+# java 를 잊어버림
+java.remove("김태호")
