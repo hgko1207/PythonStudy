@@ -282,3 +282,42 @@ python.add("김태호")
 # java 를 잊어버림
 java.remove("김태호")
 ```
+
+### 자료구조의 변경
+
+```py
+# 커피숍
+menu = {"커피", "우유", "주소"}
+print(menu, type(menu)) # {'커피', '주소', '우유'} <class 'set'>
+
+menu = list(menu)
+print(menu, type(menu)) # ['커피', '주소', '우유'] <class 'list'>
+
+menu = tuple(menu)
+print(menu, type(menu)) # ['커피', '주소', '우유'] <class 'tuple'>
+
+menu = set(menu)
+print(menu, type(menu)) # ['커피', '주소', '우유'] <class 'set'>
+```
+
+### if
+
+```py
+weather = input("오늘 날씨는 어때요?")
+if weather == "비" or weather == "눈":
+    print("우산을 챙기세요")
+elif weather == "미세먼지":
+    print("마스크를 챙기세요")
+else:
+    print("준비물 필요 없어요")
+
+temp = int(input("기운은 어때요?"))
+if 30 <= temp:
+    print("너무 더워요. 나가지 마세요")
+elif 10 <= temp and temp < 30:
+    print("괜찮은 날씨에요")
+elif 0 <= temp < 10:
+    print("외투를 챙기세요")
+else:
+    print("너무 추워요. 나가지 마세요")
+```

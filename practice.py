@@ -1,25 +1,17 @@
-# 집합 (set)
-# 중복 안됨, 순서 없음
-my_set = {1,2,3,3,3}
-print(my_set)
+weather = input("오늘 날씨는 어때요?")
+if weather == "비" or weather == "눈":
+    print("우산을 챙기세요")
+elif weather == "미세먼지":
+    print("마스크를 챙기세요")
+else:
+    print("준비물 필요 없어요")
 
-java = {"유재석", "김태호", "양세형"}
-python = set(["유재석", "박명수"])
-
-# 교집합 (java 와 python 을 모두 할 수 있는 개발자)
-print(java & python)
-print(java.intersection(python))
-
-# 합집합 (java 할 수 있거나 python 도 할 수 있는 개발자)
-print(java | python)
-print(java.union(python))
-
-# 차집합 (java 할 수 있지만 python 은 할 줄 모르는 개발자)
-print(java - python)
-print(java.difference(python))
-
-# python 할 줄 아는 사람이 늘어남
-python.add("김태호")
-
-# java 를 잊어버림
-java.remove("김태호")
+temp = int(input("기운은 어때요?"))
+if 30 <= temp:
+    print("너무 더워요. 나가지 마세요")
+elif 10 <= temp and temp < 30:
+    print("괜찮은 날씨에요")
+elif 0 <= temp < 10:
+    print("외투를 챙기세요")
+else:
+    print("너무 추워요. 나가지 마세요")
