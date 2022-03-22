@@ -414,3 +414,72 @@ def profile(name, age, *language):
 profile("고형균", 35, "Python", "Java", "C", "C++", "C#", "JavaScript")
 profile("김태호", 40, "Kotlin", "Swift", "", "", "")
 ```
+
+### 지역변수와 전역변수
+
+```py
+gun = 10
+
+def checkpoint(soldiers): # 경계근무
+    global gun # 전역 공간에 있는 gun 사용
+    gun = gun - soldiers
+    print("[함수 내] 남은 총 : {0}".format(gun))
+
+def checkpoint_ret(gun, soldiers):
+    gun = gun - soldiers
+    print("[함수 내] 남은 총 : {0}".format(gun))
+    return gun
+
+print("전체 총 : {0}".format(gun))
+#checkpoint(2) # 2명이 경계 근무 나감
+gun = checkpoint_ret(gun, 2)
+print("남은 총 : {0}".format(gun))
+```
+
+### 표준 입출력
+
+```py
+import sys
+print("Python", "Java", file=sys.stdout)
+print("Python", "Java", file=sys.stderr)
+
+# 시험 성적
+scores = {"수학":0, "영어":50, "코딩":100}
+for subject, score in scores.items():
+    #print(subject, score)
+    print(subject.ljust(8), str(score).rjust(4), sep=":")
+
+# 은행 대기순번표
+# 001, 002, 003, ...
+for num in range(1, 21):
+    print("대기번호 : " + str(num).zfill(3))
+```
+
+### 다양한 출력포맷
+
+```py
+# 빈 자리는 빈공간으로 두고, 오른쪽 정렬을 하되, 총 10자리 공간을 확보
+print("{0: >10}".format(500))
+# 양수일 땐 +로 표시, 음수일 땐 -로 표시
+print("{0: >+10}".format(500))
+print("{0: >+10}".format(-500))
+# 왼쪽 정렬하고, 빈칸으로 _로 채움
+print("{0:_<+10}".format(500))
+# 3자리 마다 콤마를 찍어주기
+print("{0:,}".format(1000000000))
+# 3자리 마다 콤마를 찍어주기, +- 부호도 붙이기
+print("{0:+,}".format(1000000000))
+# 3자리 마다 콤마를 찍어주기, +- 부호도 붙이고, 자릿수 확보하기
+# 돈이 많으면 행복해지니까 빈 자리는 ^ 로 채워주기
+print("{0:^<+30,}".format(1000000000))
+# 소수점 출력
+print("{0:f}".format(5/3))
+# 소수점 특정 자리수 까지만 표시 (소수점 3째 자리에서 반올림)
+print("{0:.2f}".format(5/3))
+```
+
+### 파일 입출력
+
+```py
+
+```
