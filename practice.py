@@ -1,18 +1,28 @@
-# 빈 자리는 빈공간으로 두고, 오른쪽 정렬을 하되, 총 10자리 공간을 확보
-print("{0: >10}".format(500))
-# 양수일 땐 +로 표시, 음수일 땐 -로 표시
-print("{0: >+10}".format(500))
-print("{0: >+10}".format(-500))
-# 왼쪽 정렬하고, 빈칸으로 _로 채움
-print("{0:_<+10}".format(500))
-# 3자리 마다 콤마를 찍어주기
-print("{0:,}".format(1000000000))
-# 3자리 마다 콤마를 찍어주기, +- 부호도 붙이기
-print("{0:+,}".format(1000000000))
-# 3자리 마다 콤마를 찍어주기, +- 부호도 붙이고, 자릿수 확보하기
-# 돈이 많으면 행복해지니까 빈 자리는 ^ 로 채워주기
-print("{0:^<+30,}".format(1000000000))
-# 소수점 출력
-print("{0:f}".format(5/3))
-# 소수점 특정 자리수 까지만 표시 (소수점 3째 자리에서 반올림)
-print("{0:.2f}".format(5/3))
+# 일반 유닛
+class Unit:
+    def __init__(self, name, hp):
+        self.name = name
+        self.hp = hp
+
+# 공격 유닛
+class AttackUnit(Unit):
+    def __init__(self, name, hp, damage):
+        Unit.__init__(self, name, hp)
+        self.damage = damage
+
+    def attack(self, location):
+        print("{0} : {1} 방향으로 적군을 공격합니다. [공격력 {2}]".format(self.name, location, self.damage))
+
+    def damaged(self, damage):
+        print("{0} : {1} 데미지를 입었습니다.".format(self.name, damage))
+        self.hp -= damage
+        print("{0} : 현재 체력은 {1} 입니다.".format(self.name, self.hp))
+        if self.hp <= 0:
+            print("{0} : 파괴되었습니다.".format(self.name))
+
+firebat1 = AttackUnit("파이어뱃", 50, 16)
+firebat1.attack("5시")
+
+# 공격 2번 받는다고 가정
+firebat1.damaged(25)
+firebat1.damaged(25)

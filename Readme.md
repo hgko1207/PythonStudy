@@ -481,5 +481,132 @@ print("{0:.2f}".format(5/3))
 ### 파일 입출력
 
 ```py
+score_file = open("score.txt", "w", encoding="utf8") # write
+print("수학 : 0", file=score_file)
+print("영어 : 50", file=score_file)
+score_file.close()
+
+score_file = open("score.txt", "a", encoding="utf8") # update
+score_file.write("과학 : 80")
+score_file.write("\n코딩 : 100")
+score_file.close()
+
+score_file = open("score.txt", "r", encoding="utf8") # read
+print(score_file.read())
+score_file.close()
+
+score_file = open("score.txt", "r", encoding="utf8")
+print(score_file.readline(), end="") # 줄별로 읽기, 한 줄 읽고 커서는 다음 줄로 이동
+print(score_file.readline(), end="")
+print(score_file.readline(), end="")
+print(score_file.readline(), end="")
+score_file.close()
+
+score_file = open("score.txt", "r", encoding="utf8")
+while True:
+    line = score_file.readline()
+    if not line:
+        break
+    print(line, end="")
+score_file.close()
+
+score_file = open("score.txt", "r", encoding="utf8")
+lines = score_file.readlines() # list 형태로 저장
+for line in lines:
+    print(line, end="")
+score_file.close()
+```
+
+### pickle
+
+```py
+import pickle
+profile_file = open("profile.pickle", "wb") # b: 바이너리
+profile = {"이름":"고형균", "나이":36, "취미":["축구", "볼링", "코딩"]}
+print(profile)
+pickle.dump(profile, profile_file) # profile 에 있는 정보를 file 에 저장
+profile_file.close()
+
+profile_file = open("profile.pickle", "rb")
+profile = pickle.load(profile_file) # file 에 있는 정보를 profile 에 불러오기
+print(profile)
+profile_file.close()
+```
+
+### with
+
+```py
+# import pickle
+
+# with open("profile.pickle", "rb") as profile_file:
+#     print(pickle.load(profile_file))
+
+with open("study.txt", "w", encoding="utf8") as study_file:
+    study_file.write("파이썬을 열심히 공부하고 있어요")
+
+with open("study.txt", "r", encoding="utf8") as study_file:
+    print(study_file.read())
+```
+
+### 클래스
+
+```py
+class Unit:
+    def __init__(self, name, hp, damage):
+        self.name = name
+        self.hp = hp
+        self.damage = damage
+        print("{0} 유닛이 생성되었습니다.".format(self.name))
+        print("체력 {0}, 공격력 {1}\n".format(self.hp, self.damage))
+
+marine1 = Unit("마린", 40, 5)
+marine2 = Unit("마린", 40, 5)
+tank = Unit("탱크", 150, 35)
+```
+
+### 메소드
+
+```py
+class AttackUnit:
+    def __init__(self, name, hp, damage):
+        self.name = name
+        self.hp = hp
+        self.damage = damage
+
+    def attack(self, location):
+        print("{0} : {1} 방향으로 적군을 공격합니다. [공격력 {2}]".format(self.name, location, self.damage))
+
+    def damaged(self, damage):
+        print("{0} : {1} 데미지를 입었습니다.".format(self.name, damage))
+        self.hp -= damage
+        print("{0} : 현재 체력은 {1} 입니다.".format(self.name, self.hp))
+        if self.hp <= 0:
+            print("{0} : 파괴되었습니다.".format(self.name))
+
+firebat1 = AttackUnit("파이어뱃", 50, 16)
+firebat1.attack("5시")
+
+# 공격 2번 받는다고 가정
+firebat1.damaged(25)
+firebat1.damaged(25)
+```
+
+### 상속
+
+```py
+class Unit:
+    def __init__(self, name, hp):
+        self.name = name
+        self.hp = hp
+
+class AttackUnit(Unit):
+    def __init__(self, name, hp, damage):
+        Unit.__init__(self, name, hp)
+        self.damage = damage
+```
+
+### 다중 상속
+
+```py
 
 ```
