@@ -608,5 +608,21 @@ class AttackUnit(Unit):
 ### 다중 상속
 
 ```py
+# 날 수 있는 기능을 가진 클래스
+class Flyable:
+    def __init__(self, flying_speed):
+        self.flying_speed = flying_speed
 
+    def fly(self, name, location):
+        print("{0} : {1} 방향으로 날아갑니다. [속도 {2}]".format(name, location, self.flying_speed))
+
+# 공중 공격 유닛 클래스
+class FlyableAttackUnit(AttackUnit, Flyable):
+    def __init__(self, name, hp, damage, flying_speed):
+        AttackUnit.__init__(self, name, hp, damage)
+        Flyable.__init__(self, flying_speed)
+
+# 발키리 : 공중 공격 유닛, 한번에 14발 미사일 발사.
+valkrie = FlyableAttackUnit("발키리", 200, 6, 5)
+valkrie.fly(valkrie.name, "3시");
 ```
