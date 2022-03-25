@@ -626,3 +626,21 @@ class FlyableAttackUnit(AttackUnit, Flyable):
 valkrie = FlyableAttackUnit("발키리", 200, 6, 5)
 valkrie.fly(valkrie.name, "3시");
 ```
+
+### 메소드 오버라이딩
+
+```py
+class FlyableAttackUnit(AttackUnit, Flyable):
+    def __init__(self, name, hp, damage, flying_speed):
+        AttackUnit.__init__(self, name, hp, 0, damage)
+        Flyable.__init__(self, flying_speed)
+
+    def move(self, location):
+        self.fly(self.name, location) # <= 메소드 오버라이딩
+```
+
+### pass
+
+```py
+
+```
