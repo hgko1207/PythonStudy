@@ -43,11 +43,19 @@ class FlyableAttackUnit(AttackUnit, Flyable):
         print("[공중 유닛 이동")
         self.fly(self.name, location)
 
-# 벌쳐 : 지상 유닛, 기동성이 좋음
-vulture = AttackUnit("벌쳐", 80, 10, 20)
+# 건물
+class BuildingUnit(Unit):
+    def __init__(self, name, hp, location):
+        pass
 
-# 배틀크루저 : 공중 유닉, 체력도 굉장히 좋음, 공격력도 좋음
-battlecruiser = FlyableAttackUnit("배틀크루저", 500, 25, 3)
+# 서플라이 디폿 : 건물, 1개 건물 = 8 유닛
+supply_depot = BuildingUnit("서플라이 디폿", 500, "7시")
 
-vulture.move("11")
-battlecruiser.move("9시")
+def game_start():
+    print("[알림] 새로운 게임을 시작합니다.")
+
+def game_over():
+    pass
+
+game_start()
+game_over()
