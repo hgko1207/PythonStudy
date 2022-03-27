@@ -651,3 +651,13 @@ def game_over():
 game_start()
 game_over()
 ```
+
+### super
+
+```py
+class BuildingUnit(Unit):
+    def __init__(self, name, hp, location):
+        #Unit.__init__(self, name, hp, 0)
+        super().__init__(name, hp, 0)
+        self.location = location
+```
