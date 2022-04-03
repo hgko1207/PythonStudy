@@ -705,8 +705,51 @@ except BigNumberError as err:
     print(err)
 ```
 
-### finally
+### 모듈
+
+모듈을 사용하기 위해 `theater_module.py` 파일을 생성한다.
 
 ```py
+# 일반 가격
+def price(people):
+    print("{0}명 가격은 {1}원 입니다.".format(people, people * 10000))
 
+# 조조 할인 가격
+def price_morning(people):
+    print("{0}명 조조 할인 가격은 {1}원 입니다.".format(people, people * 6000))
+
+# 군인 할인 가격
+def price_soldier(people):
+    print("{0}명 군인 할인 가격은 {1}원 입니다.".format(people, people * 4000))
+```
+
+생성한 모듈을 사용하기 위한 5가지 방법이다.
+
+```py
+# 1) 기본
+import theater_module
+theater_module.price(3) # 3명이서 영화 보러 갔을 때 가격
+theater_module.price_morning(4) # 4명이서 조조 할인 영화 보러 갔을 때
+theater_module.price_soldier(5) # 5명의 군인이 영화 보러 갔을 때
+
+# 2) 별칭 사용
+import theater_module as mv
+mv.price(3)
+mv.price_morning(4)
+mv.price_soldier(5)
+
+# 3) 전체 사용
+from theater_module import *
+price(3)
+price_morning(4)
+price_soldier(5)
+
+# 4) 특정한 함수 사용
+from theater_module import price, price_morning
+price(5)
+price_morning(6)
+
+# 5) 함수에 별칭 사용
+from theater_module import price_soldier as price
+price(5)
 ```
