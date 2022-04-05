@@ -775,3 +775,21 @@ if __name__ == "__main__":
 else:
     print("Thailand 외부에서 모듈 호출")
 ```
+
+### 패키지, 모듈 위치
+
+```py
+import inspect
+import random
+print(inspect.getfile(random))
+```
+
+### pip install
+
+https://pypi.org/search/
+
+- `pip install beautifulsoup4`
+- `pip list`
+- `pip show beautifulsoup4`
+- `pip install --upgrade beautifulsoup4`
+- `pip uninstall beautifulsoup4`
