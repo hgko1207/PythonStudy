@@ -1,23 +1,21 @@
 # Python 공부
 
-나도코딩(https://www.youtube.com/channel/UC7iAOLiALt2rtMVAWWl4pnw)님의 파이썬 코딩 무료 강의(기본편)을 보면서 작성하였습니다.
+나도코딩 님의 [파이썬 코딩 무료 강의 (기본편)](https://www.youtube.com/channel/UC7iAOLiALt2rtMVAWWl4pnw)을 보면서 작성하였다.
 
 ## 환경설정
 
 ### Python 설치
 
-- https://www.python.org/downloads/ 홈페이지 접속 후 다운로드 탭을 선택하고, 현재 버전(3.10.2) 다운로드를 합니다.
-- 다운로드 완료 후 설치를 시작합니다. **Customize installation** 클릭하고, **install location** 란에 `c:\Python310` 입력 후 설치 버튼을 클릭합니다.
+- https://www.python.org/downloads/ 홈페이지 접속 후 다운로드 탭을 선택하고, 현재 버전(3.10.2) 다운로드를 한다.
+- 다운로드 완료 후 설치를 시작한다. **Customize installation** 클릭하고, **install location** 란에 `c:\Python310` 입력 후 설치 버튼을 클릭한다.
 
 ### Visual Studio Code 설치
 
-https://code.visualstudio.com/ 홈페이지 접속 후 다운로드 후 설치합니다.
+https://code.visualstudio.com/ 홈페이지 접속 후 다운로드 후 설치한다.
 
 - python 익스텐션 설치
 
 ## 기본 시작
-
-파이썬 기본 중에 쓰임이 있는 부분만 정리하였습니다.
 
 ### 주석
 
@@ -793,3 +791,51 @@ https://pypi.org/search/
 - `pip show beautifulsoup4`
 - `pip install --upgrade beautifulsoup4`
 - `pip uninstall beautifulsoup4`
+
+### 내장 함수
+
+[Built-in Functions](https://docs.python.org/3/library/functions.html) 사이트는 파이썬의 내장 함수 목록을 확인할 수 있다.
+
+```py
+# input : 사용자 입력을 받는 함수
+language = input("무슨 언어를 좋아하세요?")
+print("{0}은 아주 좋은 언어입니다!".format(language))
+
+# dir : 어떤 객체를 넘겨줬을 때 그 객체가 어떤 변수와 함수를 가지고 있는지 표시
+import random # 외장 함수
+print(dir(random))
+
+lst = [1, 2, 3]
+print(dir(lst))
+
+name = "Ko"
+print(dir(name))
+```
+
+### 외장 함수
+
+[Python Module Index](https://docs.python.org/3/py-modindex.html) 사이트는 파이썬의 외장 함수 목록을 확인할 수 있다.
+
+```py
+# glob : 경로 내의 폴더 / 파일 목록 조회 (윈도우 dir)
+import glob
+print(glob.glob("*.py")) # 확장자가 py 인 모든 파일
+
+# os : 운영체제에서 제공하는 기본 기능
+import os
+print(os.getcwd()) # 현재 디렉토리
+print(os.listdir())
+
+# time : 시간 관련 함수
+import time
+print(time.localtime())
+print(time.strftime("%Y-%m-%d %H:%M:%S"))
+
+import datetime
+print("오늘 날짜는 ", datetime.date.today())
+
+# timedelta : 두 날짜 사이의 간격
+today = datetime.date.today() # 오늘 날짜 저장
+td = datetime.timedelta(days=100) # 100일 저장
+print("우리가 만난지 100일은", today + td) # 오늘부터 100일 후
+```
